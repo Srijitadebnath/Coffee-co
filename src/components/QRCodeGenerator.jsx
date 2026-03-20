@@ -3,7 +3,7 @@ import QRCode from 'qrcode.react';
 
 const QRCodeGenerator = () => {
     const tables = [1, 2, 3, 4]; // your table numbers
-    const baseURL = "https://yourcafe.com/menu"; // replace with your deployed website URL
+    const baseURL = "https://coffeeCo.com/menu"; // replace with your deployed website URL
 
     return (
         <div className="flex gap-8 flex-wrap">
