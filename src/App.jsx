@@ -13,6 +13,7 @@ import MenuPage from './pages/MenuPage';
 import Checkout from './pages/Checkout';
 import OrderSuccess from './pages/OrderSuccess';
 import Admin from './pages/Admin';
+import QRCodePage from './pages/QRCodePage';
 
 // 🔥 Handles animations + QR table detection
 const AnimatedRoutes = () => {
@@ -43,6 +44,7 @@ const AnimatedRoutes = () => {
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/success/:orderId" element={<OrderSuccess />} />
+        <Route path="/qr" element={<QRCodePage />} />
 
         {/* ADMIN SIDE */}
         <Route path="/admin" element={<Admin />} />
