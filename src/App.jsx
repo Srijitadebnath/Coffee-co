@@ -24,18 +24,29 @@ const AnimatedRoutes = () => {
 
     if (tableNumber) {
       localStorage.setItem('tableNumber', tableNumber);
+
       console.log(`✅ Table detected: ${tableNumber}`);
+
+      // 🔥 OPTIONAL: Auto redirect to menu when QR is scanned
+      if (location.pathname === "/") {
+        window.location.href = "/menu";
+      }
     }
   }, [location]);
 
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
+
+        {/* CUSTOMER SIDE */}
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/success/:orderId" element={<OrderSuccess />} />
+
+        {/* ADMIN SIDE */}
         <Route path="/admin" element={<Admin />} />
+
       </Routes>
     </AnimatePresence>
   );
@@ -43,17 +54,22 @@ const AnimatedRoutes = () => {
 
 function App() {
   return (
-    // ✅ Router must be OUTSIDE
     <BrowserRouter>
 
-      {/* ✅ Providers inside router */}
       <OrderProvider>
         <CartProvider>
 
           <div className="bg-background-dark min-h-screen font-sans text-primary selection:bg-accent selection:text-secondary overflow-x-hidden">
+
+            {/* 🔥 Navbar always visible */}
             <Navbar />
+
+            {/* 🔥 Pages */}
             <AnimatedRoutes />
+
+            {/* 🔥 Footer */}
             <Footer />
+
           </div>
 
         </CartProvider>
