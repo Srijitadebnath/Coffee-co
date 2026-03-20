@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    /* Soft pastel pink background */
+    @apply bg-background-dark text-primary font-sans antialiased;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background-light;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-accent rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent-dark;
+}
+
+/* Custom Selection */
+::selection {
+  @apply bg-accent text-secondary;
+}
+
+/* Utility to hide scrollbar but keep scroll functionality (e.g. for horizontal scroll) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
